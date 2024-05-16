@@ -1,9 +1,9 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven'
-        jdk 'JDK11'
-        nodejs 'NodeJS'
+        maven 'null'
+        jdk 'null'
+        nodejs 'hudson.model.JDK'
     }
     stages {
         stage('Git Pull') {
