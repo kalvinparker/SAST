@@ -8,7 +8,7 @@ pipeline {
         }
         stage('OWASP Deps Checker') {
             steps {
-                dependency-Check additionalArguments: '', odcInstallation: 'Default'
+                dependencyCheck additionalArguments: '', odcInstallation: 'Default'
             }
         }
         stage('OWASP Report') {
