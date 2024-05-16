@@ -2,8 +2,12 @@ pipeline {
     agent any
     stages {
         stage('Git Pull') {
-            steps {
-                git 'https://github.com/WebGoat/WebGoat'
+      steps {
+        sh label: 'Checkout WebGoat', script: '''
+          git config remote.origin.url https://github.com/WebGoat/WebGoat
+          git fetch --tags --force --progress -- https://github.com/WebGoat/WebGoat +refs/heads/*:refs/remotes/origin/*
+          git checkout -f origin/master
+        '''
             }
         }
         stage('OWASP Deps Checker') {
